@@ -7,22 +7,33 @@ $(document).on('turbolinks:load', function(){
   var pieChart = new Chart(ctx, {
     type: 'pie',
     data: {
-      labels: ["賛成", "反対", "aaa", "<%= user.name %>"], //データ項目のラベル
+      labels: ["Nobel", "Fantasy", "SF", "Mystery", "Romance", "Business", "Other"], //データ項目のラベル
       datasets: [{
           backgroundColor: [
               "#c97586",
               "#bbbcde",
               "#93b881",
-              "#e6b422"
+              "#e6b422",
+              "#e73771",
+              "#94D0E4",
+              "#DDDD9B"
           ],
-          data: [45, 32, 18, <%= user.books.count %>] //グラフのデータ
+          data: [
+            <%= user.books.where(category: "Nobel").count %>,
+            <%= user.books.where(category: "Fantasy").count %>,
+            <%= user.books.where(category: "SF").count %>,
+            <%= user.books.where(category: "Mystery").count %>,
+            <%= user.books.where(category: "Romance").count %>,
+            <%= user.books.where(category: "Business").count %>,
+            <%= user.books.where(category: "Other").count %>
+          ] //グラフのデータ
       }]
     },
     options: {
       title: {
         display: true,
         //グラフタイトル
-        text: '投稿数割合'
+        text: 'カテゴリー別割合'
       }
     }
   });
