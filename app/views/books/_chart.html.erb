@@ -19,13 +19,13 @@ $(document).on('turbolinks:load', function(){
               "#DDDD9B"
           ],
           data: [
-            <%= user.books.where(category: "Nobel").count %>,
-            <%= user.books.where(category: "Fantasy").count %>,
-            <%= user.books.where(category: "SF").count %>,
-            <%= user.books.where(category: "Mystery").count %>,
-            <%= user.books.where(category: "Romance").count %>,
-            <%= user.books.where(category: "Business").count %>,
-            <%= user.books.where(category: "Other").count %>
+            <%= books.where(category: "Nobel").count %>,
+            <%= books.where(category: "Fantasy").count %>,
+            <%= books.where(category: "SF").count %>,
+            <%= books.where(category: "Mystery").count %>,
+            <%= books.where(category: "Romance").count %>,
+            <%= books.where(category: "Business").count %>,
+            <%= books.where(category: "Other").count %>
           ] //グラフのデータ
       }]
     },
